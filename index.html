@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jaiteh’s Team — Get Teams App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen font-sans flex">
+
+  <!-- Sidebar -->
+  <aside class="w-64 bg-gray-800 border-r border-gray-700 flex flex-col justify-between p-4 min-h-screen">
+    <div>
+      <div class="flex items-center space-x-3 mb-8 px-2">
+        <div class="p-2 bg-emerald-500 rounded-lg text-gray-900 font-bold">JT</div>
+        <div>
+          <h1 class="text-lg font-bold text-white tracking-wide leading-tight">Jaiteh’s Team</h1>
+          <span class="text-xs text-gray-400">Get Teams App</span>
+        </div>
+      </div>
+
+      <nav class="space-y-2">
+        <button id="btn-roster" onclick="switchTab('roster')" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition bg-emerald-500/10 text-emerald-400 font-semibold">
+          <i data-lucide="users" class="w-5 h-5"></i>
+          <span>Team Roster</span>
+        </button>
+
+        <button id="btn-training" onclick="switchTab('training')" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition text-gray-400 hover:bg-gray-700/50">
+          <i data-lucide="calendar" class="w-5 h-5"></i>
+          <span>Training Days</span>
+        </button>
+
+        <button id="btn-matchday" onclick="switchTab('matchday')" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition text-gray-400 hover:bg-gray-700/50">
+          <i data-lucide="trophy" class="w-5 h-5"></i>
+          <span>Matchday Planner</span>
+        </button>
+      </nav>
+    </div>
+
+    <div class="p-3 bg-gray-700/30 rounded-xl border border-gray-700/50">
+      <p class="text-xs text-gray-400">Status</p>
+      <div class="flex items-center space-x-2 mt-1">
+        <div class="w-2.5 h-2.5 bg-emerald-400 rounded-full animate-pulse"></div>
+        <span class="text-sm font-medium text-gray-200">Pre-Season Ready</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="flex-1 overflow-y-auto p-8">
+    
+    <!-- Roster Tab -->
+    <section id="tab-roster" class="tab-content">
+      <div class="flex justify-between items-center mb-6">
+        <div>
+          <h2 class="text-2xl font-bold text-white">Jaiteh’s Team — Squad Roster</h2>
+          <p class="text-gray-400 text-sm">Manage active players, positions, and attendance status.</p>
+        </div>
+        <button class="flex items-center space-x-2 bg-emerald-500 hover:bg-emerald-600 text-gray-900 px-4 py-2 rounded-lg font-medium transition">
+          <i data-lucide="plus" class="w-4 h-4"></i>
+          <span>Add Member</span>
+        </button>
+      </div>
+
+      <div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-gray-700/50 text-gray-400 text-xs uppercase tracking-wider border-b border-gray-700">
+              <th className="p-4" class="p-4">Name</th>
+              <th className="p-4" class="p-4">Position</th>
+              <th className="p-4" class="p-4">Status</th>
+              <th className="p-4" class="p-4">Attendance Rate</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-700/50 text-sm">
+            <tr class="hover:bg-gray-700/30 transition">
+              <td class="p-4 font-medium text-white">Player One</td>
+              <td class="p-4 text-gray-300">Forward</td>
+              <td class="p-4"><span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400">Active</span></td>
+              <td class="p-4 text-gray-300">95%</td>
+            </tr>
+            <tr class="hover:bg-gray-700/30 transition">
+              <td class="p-4 font-medium text-white">Player Two</td>
+              <td class="p-4 text-gray-300">Midfielder</td>
+              <td class="p-4"><span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400">Active</span></td>
+              <td class="p-4 text-gray-300">88%</td>
+            </tr>
+            <tr class="hover:bg-gray-700/30 transition">
+              <td class="p-4 font-medium text-white">Player Three</td>
+              <td class="p-4 text-gray-300">Defender</td>
+              <td class="p-4"><span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400">Resting</span></td>
+              <td class="p-4 text-gray-300">92%</td>
+            </tr>
+            <tr class="hover:bg-gray-700/30 transition">
+              <td class="p-4 font-medium text-white">Player Four</td>
+              <td class="p-4 text-gray-300">Goalkeeper</td>
+              <td class="p-4"><span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400">Active</span></td>
+              <td class="p-4 text-gray-300">90%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Training Tab -->
+    <section id="tab-training" class="tab-content hidden">
+      <div class="flex justify-between items-center mb-6">
+        <div>
+          <h2 class="text-2xl font-bold text-white">Training Schedule</h2>
+          <p class="text-gray-400 text-sm">Upcoming sessions for Jaiteh’s Team.</p>
+        </div>
+        <button class="flex items-center space-x-2 bg-emerald-500 hover:bg-emerald-600 text-gray-900 px-4 py-2 rounded-lg font-medium transition">
+          <i data-lucide="plus" class="w-4 h-4"></i>
+          <span>Schedule Session</span>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-gray-800 border border-gray-700 rounded-xl p-5 hover:border-emerald-500/50 transition">
+          <div class="flex justify-between items-center mb-3">
+            <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md">Tuesday</span>
+            <div class="flex items-center text-xs text-gray-400 space-x-1">
+              <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+              <span>18:30 - 20:30</span>
+            </div>
+          </div>
+          <h3 class="font-semibold text-white mb-2">Tactical Drills & Pre-Season Fitness</h3>
+          <div class="flex items-center text-xs text-gray-400 space-x-1">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+            <span>Pitch A (Main Ground)</span>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 border border-gray-700 rounded-xl p-5 hover:border-emerald-500/50 transition">
+          <div class="flex justify-between items-center mb-3">
+            <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md">Thursday</span>
+            <div class="flex items-center text-xs text-gray-400 space-x-1">
+              <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+              <span>18:30 - 20:00</span>
+            </div>
+          </div>
+          <h3 class="font-semibold text-white mb-2">Set Pieces & Ball Possession</h3>
+          <div class="flex items-center text-xs text-gray-400 space-x-1">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+            <span>Pitch B</span>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 border border-gray-700 rounded-xl p-5 hover:border-emerald-500/50 transition">
+          <div class="flex justify-between items-center mb-3">
+            <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md">Saturday</span>
+            <div class="flex items-center text-xs text-gray-400 space-x-1">
+              <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+              <span>10:00 - 12:00</span>
+            </div>
+          </div>
+          <h3 class="font-semibold text-white mb-2">Strength & Agility</h3>
+          <div class="flex items-center text-xs text-gray-400 space-x-1">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+            <span>Gym / Field</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Matchday Tab -->
+    <section id="tab-matchday" class="tab-content hidden">
+      <div class="mb-6">
+        <h2 class="text-2xl font-bold text-white">Matchday Scheduler</h2>
+        <p class="text-gray-400 text-sm">Key timeline and arrival details for upcoming fixtures.</p>
+      </div>
+
+      <div class="bg-gray-800 border border-gray-700 rounded-xl p-6">
+        <div class="flex items-center justify-between border-b border-gray-700 pb-4 mb-6">
+          <div>
+            <span class="text-xs font-bold text-emerald-400 tracking-wider uppercase">Next Match</span>
+            <h3 class="text-xl font-bold text-white mt-1">Jaiteh’s Team — Match 1</h3>
+          </div>
+          <div class="text-right">
+            <span class="text-sm font-semibold text-gray-300">Saturday, 09:00 AM</span>
+            <p class="text-xs text-gray-400">Tournament Grounds • Pitch 1</p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <h4 class="text-sm font-semibold text-gray-300">Arrival & Schedule</h4>
+          <div class="space-y-3">
+            <div class="flex items-start space-x-3 p-3 bg-gray-700/30 rounded-lg">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 mt-0.5"></i>
+              <div>
+                <p class="text-sm font-medium text-white">08:15 AM — Team Arrival & Check-In</p>
+                <p class="text-xs text-gray-400">Everyone must arrive on time to meet at the designated area.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3 p-3 bg-gray-700/30 rounded-lg">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 mt-0.5"></i>
+              <div>
+                <p class="text-sm font-medium text-white">08:30 AM — Warm-Up & Briefing</p>
+                <p class="text-xs text-gray-400">Warm-up drills, stretching, and tactical instructions.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3 p-3 bg-gray-700/30 rounded-lg">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 mt-0.5"></i>
+              <div>
+                <p class="text-sm font-medium text-white">09:00 AM — Kickoff</p>
+                <p class="text-xs text-gray-400">First match begins.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Tab Switcher
+    function switchTab(tab) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.getElementById('tab-' + tab).classList.remove('hidden');
+
+      const tabs = ['roster', 'training', 'matchday'];
+      tabs.forEach(t => {
+        const btn = document.getElementById('btn-' + t);
+        if (t === tab) {
+          btn.className = 'w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition bg-emerald-500/10 text-emerald-400 font-semibold';
+        } else {
+          btn.className = 'w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition text-gray-400 hover:bg-gray-700/50';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
